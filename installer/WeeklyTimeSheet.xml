@@ -1,0 +1,35 @@
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>WeeklyTimeSheet.jar</jar>
+  <outfile>WeeklyTimeSheet.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon>/home/hans/workspace/JWeeklyTimeSheet/installer/icon_timesheet.ico</icon>
+  <classPath>
+    <mainClass>net.oesterholt.urenregistratie.main.JWeeklyTimeSheet</mainClass>
+    <cp>libraries/h2-1.3.149.jar</cp>
+    <cp>libraries/iText-2.1.7.jar</cp>
+    <cp>libraries/JNDbm.jar</cp>
+    <cp>libraries/joda-time-1.6.2.jar</cp>
+    <cp>libraries/jRichTextEditor.jar</cp>
+    <cp>libraries/JSplitTable.jar</cp>
+    <cp>libraries/miglayout-3.7.3.1.jar</cp>
+    <cp>libraries/pdf-renderer-1.0.5.jar</cp>
+    <cp>libraries/swing-worker-1.2.jar</cp>
+    <cp>libraries/swingx-1.6.1.jar</cp>
+  </classPath>
+  <jre>
+    <path></path>
+    <minVersion>1.6.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+  </jre>
+</launch4jConfig>

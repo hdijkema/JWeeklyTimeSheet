@@ -36,7 +36,7 @@ import net.oesterholt.jxmlnote.widgets.JRecentlyUsedMenu;
 import net.oesterholt.urenregistratie.controler.UrenControler;
 import net.oesterholt.urenregistratie.view.UrenView;
 
-public class UrenWindow implements Runnable,ActionListener {
+public class UrenWindow implements Runnable, ActionListener {
 	
 	private JFrame 			_frame;
 	private JMenuBar 		_menu;

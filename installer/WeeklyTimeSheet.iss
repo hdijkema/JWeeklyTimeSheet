@@ -34,9 +34,9 @@ Source: WeeklyTimeSheet_lib\JNDbm.jar; DestDir: {app}\WeeklyTimeSheet_lib
 Source: WeeklyTimeSheet_lib\joda-time-1.6.2.jar; DestDir: {app}\WeeklyTimeSheet_lib
 Source: WeeklyTimeSheet_lib\JRichTextEditor.jar; DestDir: {app}\WeeklyTimeSheet_lib
 Source: WeeklyTimeSheet_lib\JSplitTable.jar; DestDir: {app}\WeeklyTimeSheet_lib
-Source: WeeklyTimeSheet_lib\miglayout-3.7.3.1.jar; DestDir: {app}\WeeklyTimeSheet_lib
 Source: WeeklyTimeSheet_lib\pdf-renderer-1.0.5.jar; DestDir: {app}\WeeklyTimeSheet_lib
 Source: WeeklyTimeSheet_lib\swing-worker-1.2.jar; DestDir: {app}\WeeklyTimeSheet_lib
 Source: WeeklyTimeSheet_lib\swingx-1.6.1.jar; DestDir: {app}\WeeklyTimeSheet_lib
+Source: WeeklyTimeSheet_lib\miglayout-4.0-swing.jar; DestDir: {app}\WeeklyTimeSheet_lib
 [Dirs]
 Name: {app}\WeeklyTimeSheet_lib

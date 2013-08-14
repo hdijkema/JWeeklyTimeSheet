@@ -1,35 +1,26 @@
-<launch4jConfig>
-  <dontWrapJar>true</dontWrapJar>
-  <headerType>gui</headerType>
-  <jar>WeeklyTimeSheet.jar</jar>
-  <outfile>WeeklyTimeSheet.exe</outfile>
-  <errTitle></errTitle>
-  <cmdLine></cmdLine>
-  <chdir></chdir>
-  <priority>normal</priority>
-  <downloadUrl>http://java.com/download</downloadUrl>
-  <supportUrl></supportUrl>
-  <customProcName>false</customProcName>
-  <stayAlive>false</stayAlive>
-  <manifest></manifest>
-  <icon>/home/hans/workspace/JWeeklyTimeSheet/installer/icon_timesheet.ico</icon>
-  <classPath>
-    <mainClass>net.oesterholt.urenregistratie.main.JWeeklyTimeSheet</mainClass>
-    <cp>libraries/h2-1.3.149.jar</cp>
-    <cp>libraries/iText-2.1.7.jar</cp>
-    <cp>libraries/JNDbm.jar</cp>
-    <cp>libraries/joda-time-1.6.2.jar</cp>
-    <cp>libraries/jRichTextEditor.jar</cp>
-    <cp>libraries/JSplitTable.jar</cp>
-    <cp>libraries/miglayout-3.7.3.1.jar</cp>
-    <cp>libraries/pdf-renderer-1.0.5.jar</cp>
-    <cp>libraries/swing-worker-1.2.jar</cp>
-    <cp>libraries/swingx-1.6.1.jar</cp>
-  </classPath>
-  <jre>
-    <path></path>
-    <minVersion>1.6.0</minVersion>
-    <maxVersion></maxVersion>
-    <jdkPreference>preferJre</jdkPreference>
-  </jre>
-</launch4jConfig>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project JWeeklyTimeSheet with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet.jar">
+            <manifest>
+                <attribute name="Main-Class" value="net.oesterholt.urenregistratie.main.JWeeklyTimeSheet"/>
+                <attribute name="Class-Path" value=". WeeklyTimeSheet_lib/h2-1.3.149.jar WeeklyTimeSheet_lib/iText-2.1.7.jar WeeklyTimeSheet_lib/JNDbm.jar WeeklyTimeSheet_lib/joda-time-1.6.2.jar WeeklyTimeSheet_lib/JRichTextEditor.jar WeeklyTimeSheet_lib/JSplitTable.jar WeeklyTimeSheet_lib/miglayout-3.7.3.1.jar WeeklyTimeSheet_lib/pdf-renderer-1.0.5.jar WeeklyTimeSheet_lib/swing-worker-1.2.jar WeeklyTimeSheet_lib/swingx-1.6.1.jar"/>
+            </manifest>
+            <fileset dir="C:/Users/hans/workspace/JWeeklyTimeSheet/bin"/>
+        </jar>
+        <delete dir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <mkdir dir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/h2-1.3.149.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/iText-2.1.7.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/JNDbm.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/joda-time-1.6.2.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/JRichTextEditor.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/JSplitTable.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/miglayout-3.7.3.1.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/pdf-renderer-1.0.5.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/swing-worker-1.2.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+        <copy file="C:/Users/hans/workspace/JWeeklyTimeSheet/libraries/swingx-1.6.1.jar" todir="C:/Users/hans/workspace/JWeeklyTimeSheet/installer/WeeklyTimeSheet_lib"/>
+    </target>
+</project>

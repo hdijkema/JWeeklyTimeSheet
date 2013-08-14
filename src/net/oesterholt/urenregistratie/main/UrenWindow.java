@@ -185,7 +185,7 @@ public class UrenWindow implements Runnable, ActionListener {
 	    	bestand.add(_recently);
 	    	
 	    	bestand.add(new JSeparator());
-	    	bestand.add(JWeeklyTimeSheet.menu("quit","BeÃ«indigen",this));
+	    	bestand.add(JWeeklyTimeSheet.menu("quit","Beëindigen",this));
 	    	_menu.add(bestand);
 	    	
 	    	JMenu project=new JMenu("Project");

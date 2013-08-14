@@ -2,15 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/swingx-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/miglayout-3.7.3.1.jar"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/joda-time-1.6.2.jar"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/JNDbm.jar" sourcepath="/JNDbm"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/JRichTextEditor.jar" sourcepath="/JRichTextEditor"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/iText-2.1.7.jar"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/pdf-renderer-1.0.5.jar"/>
+	<classpathentry kind="lib" path="libraries/h2-1.3.149.jar"/>
+	<classpathentry kind="lib" path="libraries/iText-2.1.7.jar"/>
+	<classpathentry kind="lib" path="libraries/JNDbm.jar"/>
+	<classpathentry kind="lib" path="libraries/joda-time-1.6.2.jar"/>
+	<classpathentry kind="lib" path="libraries/JRichTextEditor.jar"/>
+	<classpathentry kind="lib" path="libraries/JSplitTable.jar"/>
+	<classpathentry kind="lib" path="libraries/miglayout-3.7.3.1.jar"/>
+	<classpathentry kind="lib" path="libraries/pdf-renderer-1.0.5.jar"/>
 	<classpathentry kind="lib" path="libraries/swing-worker-1.2.jar"/>
-	<classpathentry kind="lib" path="/home/hans/workspace/JWeeklyTimeSheet/libraries/h2-1.3.149.jar"/>
-	<classpathentry kind="lib" path="libraries/JSplitTable.jar" sourcepath="/JSplitTable"/>
+	<classpathentry kind="lib" path="libraries/swingx-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

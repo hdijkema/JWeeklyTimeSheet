@@ -8,9 +8,9 @@
 	<classpathentry kind="lib" path="libraries/joda-time-1.6.2.jar"/>
 	<classpathentry kind="lib" path="libraries/JRichTextEditor.jar"/>
 	<classpathentry kind="lib" path="libraries/JSplitTable.jar"/>
-	<classpathentry kind="lib" path="libraries/miglayout-3.7.3.1.jar"/>
 	<classpathentry kind="lib" path="libraries/pdf-renderer-1.0.5.jar"/>
 	<classpathentry kind="lib" path="libraries/swing-worker-1.2.jar"/>
 	<classpathentry kind="lib" path="libraries/swingx-1.6.1.jar"/>
+	<classpathentry kind="lib" path="libraries/miglayout-4.0-swing.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

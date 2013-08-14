@@ -287,7 +287,7 @@ public class UrenView extends JPanel {
 		hours.setLayout(new MigLayout("insets 0,fill"));
 		hours.add(_table,"growx,growy");
 		
-		this.add(navigate,"growx,wrap");
+		this.add(navigate,"north,growx,wrap");
 		this.add(_table,"growx,growy");
 	}
 }

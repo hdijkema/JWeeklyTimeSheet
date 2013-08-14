@@ -3,6 +3,7 @@ package net.oesterholt.urenregistratie.main;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -13,6 +14,7 @@ import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -34,6 +36,7 @@ import net.oesterholt.jndbm.NDbm2;
 import net.oesterholt.jndbm2.exceptions.NDbmException;
 import net.oesterholt.jxmlnote.widgets.JRecentlyUsedMenu;
 import net.oesterholt.urenregistratie.controler.UrenControler;
+import net.oesterholt.urenregistratie.utils.Swing;
 import net.oesterholt.urenregistratie.view.UrenView;
 
 public class UrenWindow implements Runnable, ActionListener {
@@ -48,6 +51,17 @@ public class UrenWindow implements Runnable, ActionListener {
 	private NDbm2			_dbm;
 	
 	private String			_bestandsnaam;
+	
+	class MySep extends JSeparator {
+		public MySep() {
+			super(JSeparator.VERTICAL);
+			Dimension size = new Dimension(
+				    			super.getPreferredSize().width,
+				    			super.getMaximumSize().height
+				    		);
+			super.setMaximumSize(size);
+		}
+	}
 	
 	private void einde() {
 		try {
@@ -120,14 +134,16 @@ public class UrenWindow implements Runnable, ActionListener {
 		// Look and feel
 		
 		try {
-    		UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+			Swing.scaleToScreen(UIManager.getSystemLookAndFeelClassName());
+			//Swing.scaleToScreen("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 	    } catch(Exception e) {
 	    	try {
-		    	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	    		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	    	} catch (Exception e1) {
 	    		// 	ignore exception
 	    	}
 	    }
+		
 	    
 	    // menu
 	    {
@@ -229,18 +245,20 @@ public class UrenWindow implements Runnable, ActionListener {
 	    
 	    bar.add(JWeeklyTimeSheet.toolBarAction("quit",this));
 	    
-	    bar.add(new JSeparator(JSeparator.VERTICAL));
+	    bar.add(new MySep());
 	    bar.add(JWeeklyTimeSheet.toolBarAction("addproject", this));
 	    bar.add(JWeeklyTimeSheet.toolBarAction("chgproject", this));
 	    bar.add(JWeeklyTimeSheet.toolBarAction("delproject", this));
 	    
-	    bar.add(new JSeparator(JSeparator.VERTICAL));
+	    bar.add(new MySep());
 	    bar.add(JWeeklyTimeSheet.toolBarAction("weekstaat", this));
 	    bar.add(JWeeklyTimeSheet.toolBarAction("maandstaat", this));
 	    bar.add(JWeeklyTimeSheet.toolBarAction("jaarstaat", this));
 	    
 	    bar.setFloatable(false);
 	    bar.setFocusable(false);
+	    
+	    bar.add(Box.createHorizontalGlue());
 	    
 	    bar.setBorder(BorderFactory.createEtchedBorder());
 
@@ -255,15 +273,20 @@ public class UrenWindow implements Runnable, ActionListener {
 	    _frame.setJMenuBar(_menu);
 	    {
 	    	JPanel p=new JPanel(new MigLayout("fill"));;
-	    	p.add(bar,"growx,wrap");
+	    	p.add(bar,"north,growx,wrap");
 	    	p.add(_view,"growx,growy");
 	    	_frame.add(p);
 	    }
 	    Point loc=JWeeklyTimeSheet.getPrevWindowLocation();
 	    Dimension size=JWeeklyTimeSheet.getPrevWindowSize();
+	    Dimension ssize = Toolkit.getDefaultToolkit().getScreenSize(); 
 	    if (size!=null) { _frame.setPreferredSize(size); }
 	    _frame.pack();
-	    if (loc!=null) { _frame.setLocation(loc); }
+	    if (loc!=null) {
+	    	if (loc.x > ssize.width - 50) { loc.x = 100; }
+	    	if (loc.y > ssize.height - 50) { loc.y = 100; }  
+	    	_frame.setLocation(loc); 
+	    }
 	    _frame.setVisible(true);
 	}
 	

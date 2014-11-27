@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.data;
+package net.dijkema.urenregistratie.data;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -11,14 +11,14 @@ import java.util.concurrent.Semaphore;
 
 import org.joda.time.DateTime;
 
-import net.oesterholt.jndbm.NDbm;
-import net.oesterholt.jndbm.NDbm2;
-import net.oesterholt.jndbm.NDbm2ObjectReader;
-import net.oesterholt.jndbm.NDbm2ObjectWriter;
-import net.oesterholt.jndbm.NDbmEncDec;
-import net.oesterholt.jndbm.NDbmObjectReader;
-import net.oesterholt.jndbm.NDbmObjectWriter;
-import net.oesterholt.jndbm2.exceptions.NDbmException;
+import net.dijkema.jndbm.NDbm;
+import net.dijkema.jndbm.NDbm2;
+import net.dijkema.jndbm.NDbm2ObjectReader;
+import net.dijkema.jndbm.NDbm2ObjectWriter;
+import net.dijkema.jndbm.NDbmEncDec;
+import net.dijkema.jndbm.NDbmObjectReader;
+import net.dijkema.jndbm.NDbmObjectWriter;
+import net.dijkema.jndbm2.exceptions.NDbmException;
 
 public class Kostensoort {
 	

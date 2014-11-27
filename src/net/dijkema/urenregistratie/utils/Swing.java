@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.utils;
+package net.dijkema.urenregistratie.utils;
 
 import java.awt.Component;
 import java.awt.Dimension;

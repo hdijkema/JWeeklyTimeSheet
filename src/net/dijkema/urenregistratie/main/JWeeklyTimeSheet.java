@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.main;
+package net.dijkema.urenregistratie.main;
 
 import java.awt.Dimension;
 import java.awt.Image;
@@ -16,19 +16,19 @@ import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 
-import net.oesterholt.jndbm.NDbm;
+import net.dijkema.jndbm.NDbm;
 
 public class JWeeklyTimeSheet {
 	
 	public static void setIconImage(Window w) {
-		URL url=JWeeklyTimeSheet.class.getResource("/net/oesterholt/urenregistratie/resources/icon_timesheet.png");
+		URL url=JWeeklyTimeSheet.class.getResource("/net/dijkema/urenregistratie/resources/icon_timesheet.png");
 		ImageIcon icon = new ImageIcon(url);
 		w.setIconImage(icon.getImage());
 	}
 	
 	public static ImageIcon toolBarIcon(String name) {
 		URL url=JWeeklyTimeSheet.class.getResource(
-					String.format("/net/oesterholt/urenregistratie/resources/%s.png",name)
+					String.format("/net/dijkema/urenregistratie/resources/%s.png",name)
 					);
 		return new ImageIcon(
 					new ImageIcon(url).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)

@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.dialogs;
+package net.dijkema.urenregistratie.dialogs;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -10,8 +10,8 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import net.oesterholt.urenregistratie.data.Jaar;
-import net.oesterholt.urenregistratie.data.Project;
+import net.dijkema.urenregistratie.data.Jaar;
+import net.dijkema.urenregistratie.data.Project;
 
 public class VerwijderProject {
 	

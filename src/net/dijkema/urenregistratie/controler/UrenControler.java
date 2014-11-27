@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.controler;
+package net.dijkema.urenregistratie.controler;
 
 
 import java.awt.Component;
@@ -7,16 +7,16 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import net.oesterholt.jndbm.NDbm2;
-import net.oesterholt.jndbm2.exceptions.NDbmException;
-import net.oesterholt.splittable.AbstractTwoLevelSplitTableModel;
-import net.oesterholt.urenregistratie.data.Jaar;
-import net.oesterholt.urenregistratie.data.Kostensoort;
-import net.oesterholt.urenregistratie.data.Nil;
-import net.oesterholt.urenregistratie.data.Project;
-import net.oesterholt.urenregistratie.dialogs.NieuwProject;
-import net.oesterholt.urenregistratie.dialogs.VerwijderProject;
-import net.oesterholt.urenregistratie.dialogs.WijzigProject;
+import net.dijkema.jndbm.NDbm2;
+import net.dijkema.jndbm2.exceptions.NDbmException;
+import net.dijkema.splittable.AbstractTwoLevelSplitTableModel;
+import net.dijkema.urenregistratie.data.Jaar;
+import net.dijkema.urenregistratie.data.Kostensoort;
+import net.dijkema.urenregistratie.data.Nil;
+import net.dijkema.urenregistratie.data.Project;
+import net.dijkema.urenregistratie.dialogs.NieuwProject;
+import net.dijkema.urenregistratie.dialogs.VerwijderProject;
+import net.dijkema.urenregistratie.dialogs.WijzigProject;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;

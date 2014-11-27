@@ -1,12 +1,12 @@
-package net.oesterholt.urenregistratie.data;
+package net.dijkema.urenregistratie.data;
 
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
 
-import net.oesterholt.jndbm.NDbm;
-import net.oesterholt.jndbm.NDbm2;
-import net.oesterholt.jndbm2.exceptions.NDbmException;
+import net.dijkema.jndbm.NDbm;
+import net.dijkema.jndbm.NDbm2;
+import net.dijkema.jndbm2.exceptions.NDbmException;
 
 public class Project {
 	

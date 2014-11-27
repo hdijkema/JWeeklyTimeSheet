@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.dialogs;
+package net.dijkema.urenregistratie.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,9 +18,9 @@ import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
 import net.miginfocom.swing.MigLayout;
-import net.oesterholt.jndbm2.exceptions.NDbmException;
-import net.oesterholt.urenregistratie.data.Kostensoort;
-import net.oesterholt.urenregistratie.data.Project;
+import net.dijkema.jndbm2.exceptions.NDbmException;
+import net.dijkema.urenregistratie.data.Kostensoort;
+import net.dijkema.urenregistratie.data.Project;
 
 import org.jdesktop.swingx.JXLabel;
 import org.jdesktop.swingx.JXTextField;

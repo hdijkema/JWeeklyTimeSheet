@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.data;
+package net.dijkema.urenregistratie.data;
 
 public class Nil {
 	

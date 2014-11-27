@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.view;
+package net.dijkema.urenregistratie.view;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -24,9 +24,9 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.TableCellEditor;
 
 import net.miginfocom.swing.MigLayout;
-import net.oesterholt.JXTwoLevelSplitTable;
-import net.oesterholt.splittable.AbstractSplitTableModel.ColumnWidthListener;
-import net.oesterholt.urenregistratie.controler.UrenControler;
+import net.dijkema.JXTwoLevelSplitTable;
+import net.dijkema.splittable.AbstractSplitTableModel.ColumnWidthListener;
+import net.dijkema.urenregistratie.controler.UrenControler;
 
 import org.jdesktop.swingx.JXDatePicker;
 import org.jdesktop.swingx.JXLabel;

@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.dialogs;
+package net.dijkema.urenregistratie.dialogs;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import net.miginfocom.swing.MigLayout;
-import net.oesterholt.jndbm.NDbm;
-import net.oesterholt.jndbm.NDbm2;
-import net.oesterholt.jndbm2.exceptions.NDbmException;
-import net.oesterholt.urenregistratie.data.Jaar;
-import net.oesterholt.urenregistratie.data.Project;
-import net.oesterholt.urenregistratie.utils.Swing;
+import net.dijkema.jndbm.NDbm;
+import net.dijkema.jndbm.NDbm2;
+import net.dijkema.jndbm2.exceptions.NDbmException;
+import net.dijkema.urenregistratie.data.Jaar;
+import net.dijkema.urenregistratie.data.Project;
+import net.dijkema.urenregistratie.utils.Swing;
 
 public class NieuwProject extends JDialog {
 	

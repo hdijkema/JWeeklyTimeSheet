@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.controler;
+package net.dijkema.urenregistratie.controler;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -17,25 +17,25 @@ import javax.swing.SwingUtilities;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 
-import net.oesterholt.jndbm.NDbm2;
-import net.oesterholt.jxmlnote.report.Report;
-import net.oesterholt.jxmlnote.report.ReportException;
-import net.oesterholt.jxmlnote.report.ReportProgressBar;
-import net.oesterholt.jxmlnote.report.elements.Cell;
-import net.oesterholt.jxmlnote.report.elements.Chunk;
-import net.oesterholt.jxmlnote.report.elements.Paragraph;
-import net.oesterholt.jxmlnote.report.elements.Rectangle;
-import net.oesterholt.jxmlnote.report.elements.Table;
-import net.oesterholt.jxmlnote.report.pdf.PdfReport;
-import net.oesterholt.jxmlnote.report.viewers.PdfViewer;
-import net.oesterholt.jxmlnote.styles.StyleContainedException;
-import net.oesterholt.jxmlnote.styles.XMLNoteParStyle;
-import net.oesterholt.jxmlnote.styles.XMLNoteStyles;
-import net.oesterholt.jxmlnote.utils.DefaultXMLNotePreferences;
-import net.oesterholt.urenregistratie.data.Jaar;
-import net.oesterholt.urenregistratie.data.Kostensoort;
-import net.oesterholt.urenregistratie.data.Project;
-import net.oesterholt.urenregistratie.utils.Swing;
+import net.dijkema.jndbm.NDbm2;
+import net.dijkema.jxmlnote.report.Report;
+import net.dijkema.jxmlnote.report.ReportException;
+import net.dijkema.jxmlnote.report.ReportProgressBar;
+import net.dijkema.jxmlnote.report.elements.Cell;
+import net.dijkema.jxmlnote.report.elements.Chunk;
+import net.dijkema.jxmlnote.report.elements.Paragraph;
+import net.dijkema.jxmlnote.report.elements.Rectangle;
+import net.dijkema.jxmlnote.report.elements.Table;
+import net.dijkema.jxmlnote.report.pdf.PdfReport;
+import net.dijkema.jxmlnote.report.viewers.PdfViewer;
+import net.dijkema.jxmlnote.styles.StyleContainedException;
+import net.dijkema.jxmlnote.styles.XMLNoteParStyle;
+import net.dijkema.jxmlnote.styles.XMLNoteStyles;
+import net.dijkema.jxmlnote.utils.DefaultXMLNotePreferences;
+import net.dijkema.urenregistratie.data.Jaar;
+import net.dijkema.urenregistratie.data.Kostensoort;
+import net.dijkema.urenregistratie.data.Project;
+import net.dijkema.urenregistratie.utils.Swing;
 
 public class UrenReport {
 	

@@ -1,4 +1,4 @@
-package net.oesterholt.urenregistratie.main;
+package net.dijkema.urenregistratie.main;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -31,13 +31,13 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.miginfocom.swing.MigLayout;
-import net.oesterholt.jndbm.NDbm;
-import net.oesterholt.jndbm.NDbm2;
-import net.oesterholt.jndbm2.exceptions.NDbmException;
-import net.oesterholt.jxmlnote.widgets.JRecentlyUsedMenu;
-import net.oesterholt.urenregistratie.controler.UrenControler;
-import net.oesterholt.urenregistratie.utils.Swing;
-import net.oesterholt.urenregistratie.view.UrenView;
+import net.dijkema.jndbm.NDbm;
+import net.dijkema.jndbm.NDbm2;
+import net.dijkema.jndbm2.exceptions.NDbmException;
+import net.dijkema.jxmlnote.widgets.JRecentlyUsedMenu;
+import net.dijkema.urenregistratie.controler.UrenControler;
+import net.dijkema.urenregistratie.utils.Swing;
+import net.dijkema.urenregistratie.view.UrenView;
 
 public class UrenWindow implements Runnable, ActionListener {
 	

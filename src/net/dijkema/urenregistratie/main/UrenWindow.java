@@ -34,7 +34,7 @@ import net.miginfocom.swing.MigLayout;
 import net.dijkema.jndbm.NDbm;
 import net.dijkema.jndbm.NDbm2;
 import net.dijkema.jndbm2.exceptions.NDbmException;
-import net.dijkema.jxmlnote.widgets.JRecentlyUsedMenu;
+import nl.dykema.jxmlnote.widgets.JRecentlyUsedMenu;
 import net.dijkema.urenregistratie.controler.UrenControler;
 import net.dijkema.urenregistratie.utils.Swing;
 import net.dijkema.urenregistratie.view.UrenView;

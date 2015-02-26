@@ -11,15 +11,12 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.prefs.Preferences;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
-
 import net.dijkema.jndbm.NDbm2;
+import net.dijkema.urenregistratie.data.Jaar;
+import net.dijkema.urenregistratie.data.Kostensoort;
+import net.dijkema.urenregistratie.data.Project;
+import net.dijkema.urenregistratie.utils.Swing;
 import nl.dykema.jxmlnote.report.Report;
-import nl.dykema.jxmlnote.report.ReportException;
 import nl.dykema.jxmlnote.report.ReportProgressBar;
 import nl.dykema.jxmlnote.report.elements.Cell;
 import nl.dykema.jxmlnote.report.elements.Chunk;
@@ -28,14 +25,12 @@ import nl.dykema.jxmlnote.report.elements.Rectangle;
 import nl.dykema.jxmlnote.report.elements.Table;
 import nl.dykema.jxmlnote.report.pdf.PdfReport;
 import nl.dykema.jxmlnote.report.viewers.PdfViewer;
-import nl.dykema.jxmlnote.styles.StyleContainedException;
 import nl.dykema.jxmlnote.styles.XMLNoteParStyle;
 import nl.dykema.jxmlnote.styles.XMLNoteStyles;
 import nl.dykema.jxmlnote.utils.DefaultXMLNotePreferences;
-import net.dijkema.urenregistratie.data.Jaar;
-import net.dijkema.urenregistratie.data.Kostensoort;
-import net.dijkema.urenregistratie.data.Project;
-import net.dijkema.urenregistratie.utils.Swing;
+
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 public class UrenReport {
 	

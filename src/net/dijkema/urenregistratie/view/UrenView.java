@@ -144,6 +144,7 @@ public class UrenView extends JPanel {
 	public UrenView(UrenControler c) {
 		_controler=c;
 		_table=new JXTwoLevelSplitTable(
+								"JWeeklyTimeSheet",
 								"uren",
 								c.model(),
 								JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,

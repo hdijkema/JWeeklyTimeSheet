@@ -1,22 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
   <dontWrapJar>true</dontWrapJar>
   <headerType>gui</headerType>
   <jar>WeeklyTimeSheet.jar</jar>
-  <outfile>C:\Users\hans\workspace\JWeeklyTimeSheet\installer\WeeklyTimeSheet.exe</outfile>
+  <outfile>C:\Users\hans-lokaal\workspace\JWeeklyTimeSheet\installer\WeeklyTimeSheet.exe</outfile>
   <errTitle>Weekly TimeSheet - No Java Installed</errTitle>
   <cmdLine></cmdLine>
   <chdir></chdir>
   <priority>normal</priority>
   <downloadUrl>http://java.com/download</downloadUrl>
   <supportUrl></supportUrl>
-  <customProcName>false</customProcName>
   <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\hans\workspace\JWeeklyTimeSheet\installer\icon_timesheet.ico</icon>
+  <icon>C:\Users\hans-lokaal\workspace\JWeeklyTimeSheet\installer\icon_timesheet.ico</icon>
   <jre>
     <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
     <minVersion>1.6.0</minVersion>
     <maxVersion></maxVersion>
     <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
   </jre>
 </launch4jConfig>

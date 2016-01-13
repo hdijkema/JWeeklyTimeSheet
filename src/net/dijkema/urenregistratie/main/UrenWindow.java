@@ -94,8 +94,13 @@ public class UrenWindow implements Runnable, ActionListener {
 		}
 	}
 	
-	public UrenWindow(String bn) {
+	private void setBestandsnaam(String bn) {
 		_bestandsnaam=bn;
+		if (_frame != null) { _frame.setTitle("Uren Registratie - " + bn); }
+	}
+	
+	public UrenWindow(String bn) {
+		setBestandsnaam(bn);
 	}
 	
 	public void openDbm(String file) {
@@ -143,7 +148,10 @@ public class UrenWindow implements Runnable, ActionListener {
 	    		// 	ignore exception
 	    	}
 	    }
-		
+
+		// Start with a frame
+	    _frame=new JFrame("Uren registratie");
+	    setBestandsnaam(_bestandsnaam);
 	    
 	    // menu
 	    {
@@ -192,7 +200,7 @@ public class UrenWindow implements Runnable, ActionListener {
 					if (cmd.startsWith("recent:")) {
 						String fl=cmd.substring(7);
 						openDbm(fl);
-						_bestandsnaam=fl;
+						setBestandsnaam(fl);
 						_controler.setDbm(_dbm);
 					}
 				}
@@ -262,7 +270,6 @@ public class UrenWindow implements Runnable, ActionListener {
 	    
 	    bar.setBorder(BorderFactory.createEtchedBorder());
 
-	    _frame=new JFrame("Uren registratie");
 	    _frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	    _frame.addWindowListener(new WindowAdapter() {
 	    	public void windowClosing(WindowEvent e) {

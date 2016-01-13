@@ -43,20 +43,28 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 	}
 
 	public boolean getNodeExpanded(int node) {
-		return _urenJaar.project(node).isActive();
+		if (node < _urenJaar.nProjects()) {
+			return _urenJaar.project(node).isActive();
+		} else {
+			return true;
+		}
 	}
 	
 	public int getNodeRowCount() {
-		if (_urenJaar!=null) {
-			return _urenJaar.nProjects(); 
+		if (_urenJaar != null) {
+			return _urenJaar.nProjects() + 1; 
 		} else {
 			return 0;
 		}
 	}
 
 	public int getNodeRowCount(int i) {
-		if (_urenJaar!=null) {
-			return _urenJaar.project(i).nKostensoorten();
+		if (_urenJaar != null) {
+			if (i == _urenJaar.nProjects()) { 
+				return 1; // Optelling van de totalen over alle rijen. 
+			} else {
+				return _urenJaar.project(i).nKostensoorten();
+			}
 		} else {
 			return 0;
 		}
@@ -64,47 +72,104 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 
 	public Object getNodeValue(int node, int col) {
 		if (col==0) {
-			return _urenJaar.project(node);
+			if (node < _urenJaar.nProjects()) {
+				return _urenJaar.project(node);
+			} else {
+				return ""; 
+			}
 		} else {
 			return new Nil();
 		}
 	}
 
-	public Object getValueAt(int node, int ksrt,int col) {
+	public Object getValueAt(int node, int ksrt, int col) {
 		try {
-			if (col==0) {
-				return _urenJaar.project(node).kostensoort(ksrt);
-			} else if (col==1) {
-				return _urenJaar.project(node).kostensoort(ksrt).getBudget();
-			} else if (col==2) {
-				return _urenJaar.project(node).kostensoort(ksrt).getRestand();
-			} else if (col==10) {
-				float tot=0.0f;
-				Kostensoort k=_urenJaar.project(node).kostensoort(ksrt);
-				for(int c=0;c<7;c++) {
-					DateTime d=_date;
-					Duration dur=new Duration(c*24*3600*1000);
-					d=d.plus(dur);
-					float uren=k.getUur(d);
-					tot+=uren;
-				}
-				return (Float) tot;
-			} else if (col==11) {
-				Kostensoort k=_urenJaar.project(node).kostensoort(ksrt);
-				return k.totaalUren();
-			} else {
-				col-=3;
-				DateTime d=_date;
-				Duration dur=new Duration(col*24*3600*1000);
-				d=d.plus(dur);
-				Float uren=_urenJaar.project(node).kostensoort(ksrt).getUur(d);
-				if (uren==null) {
-					return _nil;
+			if (node == _urenJaar.nProjects()) {
+				// Totalen
+				if (col == 0) {
+					return "";
+				} else if (col == 1) {
+					return "Totaal:";
+				} else if (col == 2) {
+					return "";
+				} else if (col == 11) {
+					return "";
+				} else if (col == 10) {
+					int c;
+					float tot=0.0f;
+					for(c = 0; c < 7; c++) {
+						DateTime d = _date;
+						Duration dur = new Duration(c * 24 * 3600 * 1000);
+						d = d.plus(dur);
+						int n, k;
+						for(n = 0; n < _urenJaar.nProjects(); n++) {
+							for(k = 0; k < _urenJaar.project(n).nKostensoorten(); k++) {
+								Float _u = _urenJaar.project(n).kostensoort(k).getUur(d); 
+								if (_u == null) { _u = 0.0f; }
+								tot += _u;
+							}
+						}
+					}
+					return tot;
 				} else {
-					if (uren==0.0) {
+					int c = col - 3;
+					DateTime d = _date;
+					Duration dur = new Duration(c * 24 * 3600 * 1000);
+					d = d.plus(dur);
+					float tot=0.0f;
+					int n, k;
+					for(n = 0; n < _urenJaar.nProjects(); n++) {
+						for(k = 0; k < _urenJaar.project(n).nKostensoorten(); k++) {
+							Float _u = _urenJaar.project(n).kostensoort(k).getUur(d); 
+							if (_u == null) { _u = 0.0f; }
+							tot += _u;
+						}
+					}
+					return tot;
+				}
+			} else {
+				if (col==0) {
+					return _urenJaar.project(node).kostensoort(ksrt);
+				} else if (col==1) {
+					return _urenJaar.project(node).kostensoort(ksrt).getBudget();
+				} else if (col==2) {
+					return _urenJaar.project(node).kostensoort(ksrt).getRestand();
+				} else if (col==10) {
+					float tot=0.0f;
+					Kostensoort k=_urenJaar.project(node).kostensoort(ksrt);
+					if (k == null) {
+						return 0.0f;
+					} else {
+						for(int c=0;c<7;c++) {
+							DateTime d=_date;
+							Duration dur=new Duration(c*24*3600*1000);
+							d=d.plus(dur);
+							Float _u = k.getUur(d);
+							float uren = 0.0f;
+							if (_u != null) {
+								uren = _u;
+							}
+							tot+=uren;
+						}
+						return (Float) tot;
+					}
+				} else if (col==11) {
+					Kostensoort k=_urenJaar.project(node).kostensoort(ksrt);
+					return k.totaalUren();
+				} else {
+					col-=3;
+					DateTime d=_date;
+					Duration dur=new Duration(col*24*3600*1000);
+					d=d.plus(dur);
+					Float uren=_urenJaar.project(node).kostensoort(ksrt).getUur(d);
+					if (uren==null) {
 						return _nil;
 					} else {
-						return uren;
+						if (uren==0.0) {
+							return _nil;
+						} else {
+							return uren;
+						}
 					}
 				}
 			}
@@ -115,12 +180,18 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 	}
 
 	public boolean setNodeExpanded(int node, boolean exp) {
+		boolean isActive = false;
 		try {
-			_urenJaar.project(node).setActive(exp);
+			if (node < _urenJaar.nProjects()) {
+				_urenJaar.project(node).setActive(exp);
+				isActive = _urenJaar.project(node).isActive();
+			} else {
+				// do nothing
+			}
 		} catch (NDbmException e) {
 			e.printStackTrace();
 		}
-		return _urenJaar.project(node).isActive();
+		return isActive;
 	}
 
 	public int getSplitColumn() {

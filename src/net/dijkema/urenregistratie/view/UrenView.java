@@ -178,9 +178,14 @@ public class UrenView extends JPanel {
 		_table.addHighlighter(new ColorHighlighter(new HighlightPredicate() {
 			public boolean isHighlighted(Component c,ComponentAdapter a) {
 				if ((a.column==1) && !_controler.isNodeIndex(a.row)) {
-					float val=(Float) _controler.getValueAt(a.row, a.column+1);
-					if (val<0.0f) { return true; }
-					else { return false; }
+					Object o = _controler.getValueAt(a.row, a.column+1);
+					if (o.getClass() == Float.class) {
+						float val=(Float) o; 
+						if (val<0.0f) { return true; }
+						else { return false; }
+					} else {
+						return false; 
+					}
 				} else {
 					return false;
 				}
@@ -189,9 +194,14 @@ public class UrenView extends JPanel {
 		_table.addHighlighter(new ColorHighlighter(new HighlightPredicate() {
 			public boolean isHighlighted(Component c,ComponentAdapter a) {
 				if ((a.column==1) && !_controler.isNodeIndex(a.row)) {
-					float val=(Float) _controler.getValueAt(a.row, a.column+1);
-					if (val>=0.0f) { return true; }
-					else { return false; }
+					Object o = _controler.getValueAt(a.row, a.column+1);
+					if (o.getClass() == Float.class) {
+						float val=(Float) _controler.getValueAt(a.row, a.column+1);
+						if (val>=0.0f) { return true; }
+						else { return false; }
+					} else {
+						return false; 
+					}
 				} else {
 					return false;
 				}

@@ -77,6 +77,30 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 			} else {
 				return ""; 
 			}
+		} else if (col == 10) {
+			if (node == 0) {
+				return "";
+			}
+			
+			try {
+				int i, N;
+				Project P = _urenJaar.project(node - 1);
+				Float totaal = 0.0f;
+				for(i = 0, N = P.nKostensoorten(); i < N; i++) {
+					Kostensoort K = P.kostensoort(i);
+					DateTime d=_date;
+					int id;
+					Duration dur=new Duration(24*3600*1000);
+					for(id = 0; id < 7; id++) {
+						Float uren = K.getUur(d);
+						d = d.plus(dur);
+						totaal += uren;
+					}
+				}
+				return totaal;
+			} catch(Exception e) {
+				return "error";
+			}
 		} else {
 			return new Nil();
 		}

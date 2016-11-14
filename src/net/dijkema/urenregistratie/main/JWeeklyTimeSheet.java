@@ -21,7 +21,7 @@ import net.dijkema.jndbm.NDbm;
 public class JWeeklyTimeSheet {
 	
 	public static String version() {
-		return "1.2";
+		return "1.3";
 	}
 	
 	public static void setIconImage(Window w) {

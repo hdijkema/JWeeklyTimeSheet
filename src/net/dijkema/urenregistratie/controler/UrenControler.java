@@ -346,7 +346,7 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 			String label = _days[col];
 			if ((col - 2) >= 0 && (col < 9)) {
 				col -= 2;
-				DateTime d=_date;
+				DateTime d=_date; 
 				Duration dur=new Duration(col*24*3600*1000);
 				DateTime t = d.plus(dur);
 				label += " " + t.getDayOfMonth() + "";

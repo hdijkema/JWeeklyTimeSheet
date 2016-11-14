@@ -77,7 +77,7 @@ public class UrenReport {
 					if (_type==MONTH) {
 						createMonthReport(pdfReport,p);
 					} else {
-						createYearReport(pdfReport,p);
+						createAllReport(pdfReport,p);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -396,8 +396,113 @@ public class UrenReport {
 		rep.endReport();
 	}
 
-	public void createYearReport(Report rep,ReportProgressBar.Progress p) throws Exception {
+	public void createAllReport(Report rep,ReportProgressBar.Progress p) throws Exception {
+		{
+			Chunk c=rep.createChunk("Totalenoverzicht"); 
+			Paragraph pr=rep.createParagraph(header3());
+			pr.add(c);
+			rep.add(pr);
+		}
 		
+		Table table=rep.createTable(
+				Report.Align.CENTER,
+				80.0f,
+				new float[]{0.70f,0.10f,0.10f,0.10f}
+		);
+		table.setVSpace(10.0f,10.f);
+		table.add(headerCell(rep,"project/ksrt"));
+		table.add(headerCell(rep,"budget"));
+		table.add(headerCell(rep,"rest."));
+		table.add(headerCell(rep,"totaal"));
+		
+		Project proj;
+		int i;
+		for(i=0;i<_jaar.nProjects();i++) {
+			
+			proj=_jaar.project(i);
+			
+			String name=proj.getNaam();
+			Cell naam=projectCell(rep,name);
+			//Paragraph scr=rep.createParagraph(tableStyle());
+			//scr.add(rep.createChunk(name));
+			//Cell naam=rep.createCell(scr);
+			table.add(naam);
+			
+			//scr=rep.createParagraph(tableStyle());
+			Cell ff=projectCell(rep,""); 
+			for(int j=0;j<3;j++) { table.add(ff); }
+			
+			float tot_avail = 0.0f, tot_rest = 0.0f, tot_tot = 0.0f;
+			
+			Paragraph scr;
+			for(int k=0;k<proj.nKostensoorten();k++) {
+				Kostensoort K=proj.kostensoort(k);
+				String ksrt=K.getNaam();
+				scr=rep.createParagraph(tableStyle());
+				scr.add(rep.createChunk(ksrt));
+				table.add(rep.createCell(scr));
+				
+				scr=rep.createParagraph(tableStyle());
+				scr.add(rep.createChunk(String.format("%.1f", K.getBudget())));
+				scr.setAlignment(Report.Align.RIGHT);
+				table.add(rep.createCell(scr));
+				tot_avail += K.getBudget();
+				
+				scr=rep.createParagraph(tableStyle());
+				scr.add(rep.createChunk(String.format("%.1f", K.getRestand())));
+				scr.setAlignment(Report.Align.RIGHT);
+				table.add(rep.createCell(scr));
+				tot_rest += K.getRestand();
+				
+				scr=rep.createParagraph(tableStyle());
+				scr.add(rep.createChunk(String.format("%.1f", K.totaalUren())));
+				scr.setAlignment(Report.Align.RIGHT);
+				table.add(rep.createCell(scr));
+				tot_tot += K.totaalUren();
+			}
+			
+			scr = rep.createParagraph(tableBoldStyle());
+			scr.add(rep.createChunk("Totaal:"));
+			{
+				Cell c= rep.createCell(scr);
+				Color col=new Color(0xee,0xee,0xee);
+				c.setBackground(col);
+				table.add(c);
+			}
+
+			scr = rep.createParagraph(tableBoldStyle());
+			scr.add(rep.createChunk(String.format("%.1f", tot_avail)));
+			scr.setAlignment(Report.Align.RIGHT);
+			{
+				Cell c= rep.createCell(scr);
+				Color col=new Color(0xee,0xee,0xee);
+				c.setBackground(col);
+				table.add(c);
+			}
+
+			scr = rep.createParagraph(tableBoldStyle());
+			scr.add(rep.createChunk(String.format("%.1f", tot_rest)));
+			scr.setAlignment(Report.Align.RIGHT);
+			{
+				Cell c= rep.createCell(scr);
+				Color col=new Color(0xee,0xee,0xee);
+				c.setBackground(col);
+				table.add(c);
+			}
+
+			scr = rep.createParagraph(tableBoldStyle());
+			scr.add(rep.createChunk(String.format("%.1f", tot_tot)));
+			scr.setAlignment(Report.Align.RIGHT);
+			{
+				Cell c= rep.createCell(scr);
+				Color col=new Color(0xee,0xee,0xee);
+				c.setBackground(col);
+				table.add(c);
+			}
+		}
+		
+		rep.add(table);
+		rep.endReport();		
 	}
 	
 	public UrenReport(Component parent,Jaar jr,NDbm2 dbm) {

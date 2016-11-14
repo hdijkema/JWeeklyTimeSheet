@@ -78,7 +78,26 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 				return ""; 
 			}
 		} else {
-			return new Nil();
+			if (col == 11) {
+				node -= 1;
+				if (node >= 0) {
+					int i, n;
+					float total = 0.0f;
+					for(i = 0, n = _urenJaar.project(node).nKostensoorten(); i < n; i++) {
+						try {
+							Kostensoort k= _urenJaar.project(node).kostensoort(i);
+							total += k.totaalUren();
+						} catch (Exception e) {
+							// do nothing
+						}
+					}
+					return total;
+				} else { 
+					return new Nil();
+				}
+			} else { 
+				return new Nil();
+			}
 		}
 	}
 
@@ -93,7 +112,19 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 				} else if (col == 2) {
 					return "";
 				} else if (col == 11) {
-					return "";
+					int j, m, i, n;
+					float total = 0.0f;
+					for(j = 0, m = _urenJaar.nProjects(); j < m; j++) {
+						for(i = 0, n = _urenJaar.project(j).nKostensoorten(); i < n; i++) {
+							try {
+								Kostensoort k= _urenJaar.project(j).kostensoort(i);
+								total += k.totaalUren();
+							} catch (Exception e) {
+								// do nothing
+							}
+						}
+					}
+					return total;
 				} else if (col == 10) {
 					int c;
 					float tot=0.0f;
@@ -288,7 +319,15 @@ public class UrenControler extends AbstractTwoLevelSplitTableModel {
 			return "Project/Kostensoort";
 		} else {
 			col-=1;
-			return _days[col];
+			String label = _days[col];
+			if ((col - 2) >= 0 && (col < 9)) {
+				col -= 2;
+				DateTime d=_date;
+				Duration dur=new Duration(col*24*3600*1000);
+				DateTime t = d.plus(dur);
+				label += " " + t.getDayOfMonth() + "";
+			}
+			return label; //_days[col] + " (" + t.getDayOfMonth() + ")";
 		}
 	}
 

@@ -2,23 +2,23 @@
 Name: {group}\Timesheet; Filename: {app}\WeeklyTimeSheet.exe; WorkingDir: {app}; IconFilename: {app}\WeeklyTimeSheet.exe
 [Setup]
 OutputBaseFilename=TimeSheetSetup
-VersionInfoVersion=1.1
+VersionInfoVersion=1.2
 VersionInfoCompany=-
 VersionInfoProductName=Weekly Timesheet
 AppName=Weekly Timesheet
-AppVerName=1.1
+AppVerName=1.2
 DefaultDirName={pf}\WeeklyTimesheet
 AppendDefaultGroupName=false
 VersionInfoDescription=Weekly Timesheet
 VersionInfoTextVersion=Weekly Timesheet
-VersionInfoProductVersion=1.1
-AppVersion=1.1
+VersionInfoProductVersion=1.2
+AppVersion=1.2
 UninstallDisplayIcon={app}\uninstall.ico
 UninstallDisplayName=Weekly Timesheet
 UsePreviousGroup=false
 DefaultGroupName=Timesheet
 WizardImageBackColor=clGreen
-SetupIconFile=C:\Users\hans-lokaal\workspace\JWeeklyTimeSheet\installer\install.ico
+SetupIconFile=C:\devel\workspace\JWeeklyTimeSheet\installer\install.ico
 [Files]
 Source: icon_timesheet.ico; DestDir: {app}
 Source: icon_timesheet.png; DestDir: {app}

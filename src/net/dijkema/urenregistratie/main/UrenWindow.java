@@ -41,6 +41,7 @@ import net.dijkema.urenregistratie.view.UrenView;
 
 public class UrenWindow implements Runnable, ActionListener {
 	
+	private String			VERSION = "1.2";
 	private JFrame 			_frame;
 	private JMenuBar 		_menu;
 	
@@ -96,7 +97,7 @@ public class UrenWindow implements Runnable, ActionListener {
 	
 	private void setBestandsnaam(String bn) {
 		_bestandsnaam=bn;
-		if (_frame != null) { _frame.setTitle("Uren Registratie - " + bn); }
+		if (_frame != null) { _frame.setTitle("Uren Registratie v" + VERSION + " - " + bn); }
 	}
 	
 	public UrenWindow(String bn) {

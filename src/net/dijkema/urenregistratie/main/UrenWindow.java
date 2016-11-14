@@ -28,6 +28,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.miginfocom.swing.MigLayout;
@@ -97,7 +98,13 @@ public class UrenWindow implements Runnable, ActionListener {
 	
 	private void setBestandsnaam(String bn) {
 		_bestandsnaam=bn;
+<<<<<<< HEAD
 		if (_frame != null) { _frame.setTitle("Uren Registratie v" + VERSION + " - " + bn); }
+=======
+		if (_frame != null) { 
+			_frame.setTitle("Uren Registratie v" + JWeeklyTimeSheet.version() + " - " + bn); 
+		}
+>>>>>>> branch 'master' of https://github.com/hdijkema/JWeeklyTimeSheet.git
 	}
 	
 	public UrenWindow(String bn) {
@@ -120,7 +127,21 @@ public class UrenWindow implements Runnable, ActionListener {
 		File lastpath=new File(JWeeklyTimeSheet.getLastPath());
 		JFileChooser chooser = new JFileChooser(lastpath);
 		chooser.setDialogTitle("Openen of aanmaken uren registratie bestand");
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Uren bestanden", "db");
+		FileFilter filter = new FileFilter() {
+			public boolean accept(File f) {
+				if (f.getName().toLowerCase().endsWith(".h2.db")) {
+					return true;
+				} else {
+					return false; 
+				}
+			}
+
+			public String getDescription() {
+				return "Uren bestanden (*.h2.db)";
+			}
+			
+		};
+		//FileNameExtensionFilter filter = new FileNameExtensionFilter("Uren bestanden (*.h2)", "h2.db");
 		chooser.setFileFilter(filter);
 		int returnVal = chooser.showDialog(parent,"Openen of aanmaken");
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -128,6 +149,7 @@ public class UrenWindow implements Runnable, ActionListener {
 			JWeeklyTimeSheet.setLastPath(lastpath.getAbsolutePath());
 			File file = chooser.getSelectedFile();
 			String fl = file.getAbsolutePath();
+			fl = fl.replace(".h2.db", "");
 			return fl;
 		} else {
 			return null;
@@ -165,7 +187,7 @@ public class UrenWindow implements Runnable, ActionListener {
 			//	}
 	    	//}));
 	    	
-	    	bestand.add(new JMenuItem(new AbstractAction("Nieuw uren Bestand") {
+	    	bestand.add(new JMenuItem(new AbstractAction("Nieuw/Openen Uren Bestand") {
 	    		public void actionPerformed(ActionEvent e) {
 	    			String bestand=openFile(_frame);
 	    			if (bestand!=null) {

@@ -20,6 +20,10 @@ import net.dijkema.jndbm.NDbm;
 
 public class JWeeklyTimeSheet {
 	
+	public static String version() {
+		return "1.2";
+	}
+	
 	public static void setIconImage(Window w) {
 		URL url=JWeeklyTimeSheet.class.getResource("/net/dijkema/urenregistratie/resources/icon_timesheet.png");
 		ImageIcon icon = new ImageIcon(url);

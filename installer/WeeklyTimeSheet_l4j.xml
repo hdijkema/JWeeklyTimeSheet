@@ -3,11 +3,7 @@
   <dontWrapJar>true</dontWrapJar>
   <headerType>gui</headerType>
   <jar>WeeklyTimeSheet.jar</jar>
-<<<<<<< HEAD
   <outfile>C:\devel\workspace\JWeeklyTimeSheet\installer\WeeklyTimeSheet.exe</outfile>
-=======
-  <outfile>C:\Devel\JWeeklyTimeSheet\installer\WeeklyTimeSheet.exe</outfile>
->>>>>>> branch 'master' of https://github.com/hdijkema/JWeeklyTimeSheet.git
   <errTitle>Weekly TimeSheet - No Java Installed</errTitle>
   <cmdLine></cmdLine>
   <chdir></chdir>
@@ -17,11 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-<<<<<<< HEAD
   <icon>C:\devel\workspace\JWeeklyTimeSheet\installer\icon_timesheet.ico</icon>
-=======
-  <icon>C:\Devel\JWeeklyTimeSheet\installer\icon_timesheet.ico</icon>
->>>>>>> branch 'master' of https://github.com/hdijkema/JWeeklyTimeSheet.git
   <jre>
     <path></path>
     <bundledJre64Bit>false</bundledJre64Bit>

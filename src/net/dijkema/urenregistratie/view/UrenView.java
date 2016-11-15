@@ -5,6 +5,8 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.EventObject;
 
 import javax.swing.BorderFactory;
@@ -38,6 +40,8 @@ import org.jdesktop.swingx.decorator.HighlightPredicate;
 import org.joda.time.DateTime;
 
 public class UrenView extends JPanel {
+	
+	private static final long serialVersionUID = 1L;
 	
 	JXTwoLevelSplitTable 	_table;
 	JButton				 	_volgendeWeek;
@@ -241,6 +245,11 @@ public class UrenView extends JPanel {
 			}
 		});
 		_calendar=new JXDatePicker();
+		Calendar calendar = _calendar.getMonthView().getCalendar();
+		calendar.set(_controler.jaar(), 0, 1);
+		_calendar.getMonthView().setLowerBound(calendar.getTime());
+		calendar.set(_controler.jaar(), 11, 31);
+		_calendar.getMonthView().setUpperBound(calendar.getTime());
 		_calendar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DateTime dt=new DateTime(_calendar.getDate().getTime());
@@ -259,6 +268,13 @@ public class UrenView extends JPanel {
 					_controler.wijzigJaar(UrenView.this,(Integer) _jaar.getValue());
 					_weekNr.setText(_controler.weekAsStr());
 					_weekDatum.setText(_controler.weekDatumAsStr());
+					
+					Calendar calendar = _calendar.getMonthView().getCalendar();
+					calendar.set(_controler.jaar(), 0, 1);
+					_calendar.getMonthView().setLowerBound(calendar.getTime());
+					calendar.set(_controler.jaar(), 11, 31);
+					_calendar.getMonthView().setUpperBound(calendar.getTime());
+					
 					_calendar.setDate(_controler.getJavaDate());
 				}
 			}

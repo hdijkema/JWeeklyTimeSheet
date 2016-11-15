@@ -398,10 +398,39 @@ public class UrenReport {
 
 	public void createAllReport(Report rep,ReportProgressBar.Progress p) throws Exception {
 		{
-			Chunk c=rep.createChunk("Totalenoverzicht"); 
+			Chunk c=rep.createChunk(String.format("Totalenoverzicht voor jaar %d", _jaar.jaar())); 
 			Paragraph pr=rep.createParagraph(header3());
 			pr.add(c);
 			rep.add(pr);
+		}
+		
+		{
+			DateTime min = new DateTime(_jaar.jaar() + 1, 1, 1, 0, 0, 0, 0);
+			DateTime max = new DateTime(_jaar.jaar(), 1, 1, 0, 0, 0, 0);
+			int i;
+			for(i = 0; i < _jaar.nProjects(); i++) {
+				Project proj = _jaar.project(i);
+				int k;
+				for(k = 0; k < proj.nKostensoorten(); k++) {
+					Kostensoort ksrt = proj.kostensoort(k);
+					DateTime t = new DateTime(_jaar.jaar(), 1, 1, 0, 0, 0, 0);
+					int d;
+					for(d = 0; d < _jaar.maxDagen(); d++) {
+						DateTime tm = t.plusDays(d);
+						if (ksrt.getUur(tm) != null) {
+							if (ksrt.getUur(tm) != 0.0) {
+								if (tm.compareTo(min) < 0) { min = tm; }
+								if (tm.compareTo(max) > 0) { max = tm; }
+							}
+						}
+					}
+				}
+			}
+			
+			Chunk c = rep.createChunk(String.format("Periode:  %s t/m %s", min.toString("d-M-Y"), max.toString("d-M-Y")));
+			Paragraph pr = rep.createParagraph(paragraphStyle());
+			pr.add(c);
+			rep.add(pr);;
 		}
 		
 		Table table=rep.createTable(

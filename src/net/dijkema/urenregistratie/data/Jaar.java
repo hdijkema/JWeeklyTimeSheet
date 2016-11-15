@@ -53,9 +53,20 @@ public class Jaar {
 		return _dbm;
 	}
 	
+	public Integer jaar() {
+		return _jaar;
+	}
 	
 	public int maxDagen() {
-		return 366;
+		if ((_jaar % 4) != 0) { return 365; }
+		else if ((_jaar % 100) != 0) { return 366; }
+		else if ((_jaar % 400) != 0) { return 365; }
+		else { return 366; }
+		
+		/*if (year is not divisible by 4) then (it is a common year)
+		else if (year is not divisible by 100) then (it is a leap year)
+		else if (year is not divisible by 400) then (it is a common year)
+		else (it is a leap year)*/
 	}
 	
 	public int nProjects() {
